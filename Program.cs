@@ -6,17 +6,15 @@ namespace OOP__4
     { 
         static void Main()
         {
-            string name;
-            string description;
             Products products = new Products("Товар", "Ниже приведены список товаров");
             Console.WriteLine();
-            Jewel jewel = new Jewel("Драгоценный камень","Это очень дорогой камень");
-            SemiJewel semiJewel = new SemiJewel("","");
-            Ruby ruby = new Ruby("Рубин", "Драгоценный камень, имеющий красный цвет");
-            Diamond diamond = new Diamond("Алмаз", "Драгоценный камень, самый твердый среди минералов");
-            Emerald emerald = new Emerald("Изумруд", "Драгоценный камень, являющийся камнем 1 порядка");
-            Flint flint = new Flint("Кремень","Камень, ипользуемый в ремесле");
-            Thread thread = new Thread("Нить", "Длинный предмет");
+            Jewel jewel = new Jewel("Драгоценный камень","Это очень дорогой камень", 0);
+            SemiJewel semiJewel = new SemiJewel("Полудрагоценный камень","Камень, уступающий, драгоценному камню",4);
+            Ruby ruby = new Ruby("Рубин", "Драгоценный камень, имеющий красный цвет", 4);
+            Diamond diamond = new Diamond("Алмаз", "Драгоценный камень, самый твердый среди минералов", 4);
+            Emerald emerald = new Emerald("Изумруд", "Драгоценный камень, являющийся камнем 1 порядка", 4);
+            Flint flint = new Flint("Кремень","Камень, ипользуемый в ремесле","С помощью него изготавливается оружие");
+            Thread thread = new Thread("Нить", "Длинный предмет","В данный момент товара нет в наличии");
             var obj = new Products ( "Товар", "Ниже приведены список товаров");
             object point = obj as AbstractMethods;
             

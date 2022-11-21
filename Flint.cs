@@ -8,12 +8,13 @@ namespace OOP__4
 {
     public class Flint : Rock
     {
-        public Flint(string name, string description) : base(name, description)
+        Rock rock;
+        string Object;
+        public Flint(string name, string description, string Object) : base(name, description)
         {
-            name = "Кремень";
-            description = "Полудрагоценный камень, используемый в различным отраслях";
+            this.rock = new Rock(name, description);
+            this.Object = Object;
         }
-        string Object = "Используется для создания оружия";
         public override string ToString()
         {
             return "Название товара: " + name + "\n" + "Описание товара: " + description + "\n" + "Назначение: " + Object;

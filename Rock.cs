@@ -11,17 +11,15 @@ namespace OOP__4
         Products _products;
         public Rock(string name, string description) : base(name, description)
         {
-            name = "Камень";
-            description = "Простой камень";
+            this._products = new Products(name, description);
         }
 
-        public string status = "Распространенный";
-        public int value = 0;       
+        public string status = "Распространенный";       
         public override string ToString()
             {
                 name = "Камень";
                 description = "Простой камень";
-                return "Название товара: " + name + "\n" + "Описание товара: " + description + "\n" + "Карат: " + value;
+                return "Название товара: " + name + "\n" + "Описание товара: " + description;
             }
         
     }

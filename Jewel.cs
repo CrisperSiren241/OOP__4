@@ -9,17 +9,16 @@ namespace OOP__4
     public class Jewel : Rock
     {
         Rock rock;
-        public Jewel(string name, string description) : base(name, description)
+        public int value;
+        public Jewel(string name, string description, int value) : base(name, description)
         {
-            
+            this.rock = new Rock(name, description);
+            this.value = value;
         }
 
         public string? feature;
         public override string ToString()
         {
-            name = "Драгоценный камень";
-            description = "Это очень дорогой камень";
-            value = 0;
             return "Название товара: " + name + "\n" + "Описание товара: " + description + "\n" + "Карат: " + value + "\n" + "Cтатус: " + status;
         }
     }

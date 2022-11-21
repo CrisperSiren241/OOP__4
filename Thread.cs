@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP__4
 {
@@ -10,19 +6,15 @@ namespace OOP__4
     {
         Products products;
 
-        public Thread(string name, string description) : base(name, description)
+        string ThreadDescription;
+        public Thread(string name, string description, string ThreadDescription) : base(name, description)
         {
-            this.name = name;
-            this.description = description;
+            this.products = new Products(name, description);
+            this.ThreadDescription = ThreadDescription;
         }
-        
-        string ThreadDescription = "В данный момент товара нет в наличии";
-        
-        
+
         public override string ToString()
         {
-            name = "Нить";
-            description = "Тонкий, длинный предмет";
             return "Название товара: " + name + "\n" + "Описание товара: " + description + "\n" + "Статус: "+ThreadDescription;
         }
 
