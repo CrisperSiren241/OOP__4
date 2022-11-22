@@ -10,16 +10,33 @@ namespace OOP__4
     {
         Rock rock;
         public int value;
-        public Jewel(string name, string description, int value) : base(name, description)
+        public string feature;
+        public Jewel(string name, string description, string feature, int value) : base(name, description)
         {
             this.rock = new Rock(name, description);
             this.value = value;
+            this.feature = feature;
         }
-
-        public string? feature;
         public override string ToString()
         {
             return "Название товара: " + name + "\n" + "Описание товара: " + description + "\n" + "Карат: " + value + "\n" + "Cтатус: " + status;
+        }
+
+        enum JewelTypes
+        {
+            Ruby,
+            Diamond,
+            Emerald,
+            SemiJewel
+        }
+
+        struct JewelStruct
+        {
+            public JewelTypes Type;
+            public void TypeRock()
+            {
+                Type = JewelTypes.Diamond;
+            }
         }
     }
 }

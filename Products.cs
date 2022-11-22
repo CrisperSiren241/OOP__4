@@ -55,7 +55,23 @@ namespace OOP__4
         {
             Console.WriteLine("Abstract class method");
         }
+        enum Price
+        {
+            Cheap,
+            Average,
+            Expensive
+        }
+
+        struct ProductsStruct
+        {
+            public Price Price;
+            public void TypeProduct()
+            {
+                Price = Price.Cheap;
+            }
+        }
     }
+
 
     
     

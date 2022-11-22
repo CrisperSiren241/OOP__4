@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,10 +18,23 @@ namespace OOP__4
         public string status = "Распространенный";       
         public override string ToString()
             {
-                name = "Камень";
-                description = "Простой камень";
                 return "Название товара: " + name + "\n" + "Описание товара: " + description;
+        }
+
+        enum RockSpecies
+        {
+            Igneous,
+            Sedimentary,
+            Metamorphic
+        }
+
+        struct RockStruct
+        {
+            public RockSpecies Species;
+            public void TypeRock()
+            {
+                Species = RockSpecies.Igneous;
             }
-        
+        }
     }
 }

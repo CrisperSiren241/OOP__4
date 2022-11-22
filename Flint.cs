@@ -19,5 +19,21 @@ namespace OOP__4
         {
             return "Название товара: " + name + "\n" + "Описание товара: " + description + "\n" + "Назначение: " + Object;
         }
+
+        enum TypesOfFlint
+        {
+            Concretion,
+            Chert,
+            Siliceous
+        }
+
+        struct FlintStruct
+        {
+            public TypesOfFlint Species;
+            public void TypeRock()
+            {
+                Species = TypesOfFlint.Siliceous;
+            }
+        }
     }
 }
