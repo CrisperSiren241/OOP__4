@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OOP__4
 {
-    internal class NecklaceController
+    internal class CNecklace : Necklace
     {
         string rubyName;
         string diamondName;
@@ -18,7 +19,7 @@ namespace OOP__4
         double diamondPrice = 21.2;
         double emeraldPrice = 45.6;
 
-        public NecklaceController(string rubyName, string diamondName, string emeraldName, int rubyValue, int diamondValue, int emeraldValue)
+        public CNecklace(string rubyName, string diamondName, string emeraldName, int rubyValue, int diamondValue, int emeraldValue)
         {
             this.rubyName = rubyName;
             this.diamondName = diamondName;
@@ -32,14 +33,32 @@ namespace OOP__4
         {
             Console.Write("Name of Ruby: ");
             rubyName = Console.ReadLine();
+            Debug.Assert(rubyName != "", "Вы не ввели название камня!");
             Console.Write("Name of Diamond: ");
             diamondName = Console.ReadLine();
+            Debug.Assert(diamondName != "", "Вы не ввели название камня!");
             Console.Write("Name of Emerald: ");
             emeraldName = Console.ReadLine();
+            Debug.Assert(emeraldName != "", "Вы не ввели название камня!");
             Console.Write("Amount of Ruby: ");
             rubyValue = int.Parse(Console.ReadLine());
+            if(rubyValue < 0)
+            {
+                throw new UserException("Введено неверное значение");
+            }
             Console.Write("Amount of Diamond: ");
-            diamondValue = int.Parse(Console.ReadLine());
+            try
+            {
+                diamondValue = int.Parse(Console.ReadLine());
+            }
+            catch(FormatException)
+            {
+                throw new FormatException("Введено неверное значение");
+            }
+            finally
+            {
+                Console.WriteLine("Ошибка!");
+            }
             Console.Write("Amount of Emerald: ");
             emeraldValue = int.Parse(Console.ReadLine());
         }
@@ -48,6 +67,10 @@ namespace OOP__4
         {
             double sum=0;
             sum = rubyValue * rubyPrice + diamondValue * diamondValue + emeraldValue * emeraldValue;
+            if(sum < 0)
+            {
+                throw new ProductsException("LOL");
+            }
             return sum;
         }
 
@@ -55,6 +78,12 @@ namespace OOP__4
         {
             double[] PriceArray = { rubyPrice, diamondPrice, emeraldPrice };
             Array.Sort(PriceArray);
+
+            if(PriceArray.Length == 0)
+            {
+                throw new IndexOutOfRangeException("Список пуст");
+            }
+
             foreach(int n in PriceArray)
             {
                 Console.WriteLine(n);

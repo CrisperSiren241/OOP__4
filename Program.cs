@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 
 namespace OOP__4
 {
@@ -13,27 +14,45 @@ namespace OOP__4
             Thread thread = new Thread("Нить", "Длинный предмет","В данный момент товара нет в наличии");
             Printer printer = new Printer();
 
-            /*object[] AllClasses = new object[] { ruby, diamond, emerald, flint, thread };
+            object[] AllClasses = new object[] { ruby, diamond, emerald, flint, thread };
             foreach(object o in AllClasses)
             {
                 printer.Print(o);
                 Console.WriteLine();
-            }*/
+            }
 
-            Products products = new("Товар","Описание Товара");
+            Products products = new("Товар", "Описание Товара");
             
             products.DoClone();
             ((IProducts)products).DoClone();
 
-            NecklaceContainer container = new NecklaceContainer();
+            Necklace container = new Necklace();
             
-            NecklaceController necklace1 = new NecklaceController("Рубин", "Темный Изумруд", "Маленький Алмаз", 15, 3, 4);
-            container.Add(necklace1);
-            NecklaceController necklace2 = new NecklaceController("Светлый Рубин", "Обычный Изумруд", "Большой Алмаз", 13, 10, 5);
-            container.Add(necklace2);
-            NecklaceController necklace3 = new NecklaceController("Темно-крансый Рубин", "Маленький Изумруд", "Обычный Алмаз", 5, 13, 44);
-            container.Add(necklace3);
-            container.Print();
+            try
+            {
+                CNecklace necklace1 = new CNecklace("Рубин", "Темный Изумруд", "Маленький Алмаз", 15, 3, 4);
+                container.Add(necklace1);
+                CNecklace necklace2 = new CNecklace("Светлый Рубин", "Обычный Изумруд", "Большой Алмаз", 13, 10, 5);
+                container.Add(necklace2);
+                CNecklace necklace3 = new CNecklace("Темно-крансый Рубин", "Маленький Изумруд", "Обычный Алмаз", 5, 13, 44);
+                container.Add(necklace3);
+            }
+            catch(ArgumentOutOfRangeException e)
+            {
+                Console.WriteLine("Превышен список ожерелий : " + e.Message);
+            }
+            catch(ProductsException)
+            {
+                Console.WriteLine("Введено неверное значение карат!");
+            }
+            catch(OverflowException)
+            {
+                Console.WriteLine("Введено число, заходящее за диапазон 0 - 50");
+            }
+            finally
+            {
+                container.Print();
+            }
         }
     }
 

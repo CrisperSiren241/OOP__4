@@ -5,18 +5,17 @@ using System.ComponentModel;
 
 namespace OOP__4
 {
-    public class NecklaceContainer
+    public class Necklace
     {
-        object[] List = {};
+        object[] List = new object[3];
 
-        public NecklaceContainer() { }
+        public Necklace() { }
 
         public void Add(object elem)
         {
-            if (List == null)
+            if (List[0] == null)
             {
-                object[] List = new object[1];
-                List[List.Length] = elem;
+                List[0] = elem;
             }
             else
             {
